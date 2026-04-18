@@ -1,0 +1,67 @@
+import os
+
+path = r'c:\Users\HP\OneDrive\Desktop\ALL PROJECT\RAJA\style.css'
+with open(path, 'r', encoding='utf-8') as f:
+    css = f.read()
+
+css = css.replace('crimson', '#00d4ff')
+css = css.replace('Crimson', '#00d4ff')
+css = css.replace('background: #111;', 'background: transparent;')
+css = css.replace('background: #222;', 'background: rgba(255, 255, 255, 0.05);\n    backdrop-filter: blur(10px);\n    border: 1px solid rgba(255, 255, 255, 0.1);\n    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);')
+css = css.replace('background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("BACKGROUND.jpg") no-repeat center;', 'background: transparent;')
+css = css.replace('color: #333;', 'color: #ccc;')
+
+new_css = """
+/* 3D Canvas Background */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -10;
+    background: #080808;
+    pointer-events: none; /* Make sure we can click through canvas */
+}
+
+/* Base dark theme text colors for sections */
+.about, .skills, .contact {
+    color: #fff;
+}
+.about .about-content .right p, .skills .skills-content .left p, .contact .contact-content .left p {
+    color: #ccc;
+}
+.about .title::before, .skills .title::before, .contact .title::before {
+    background: #fff;
+}
+.about .title::after, .skills .title::after, .contact .title::after {
+    background: transparent;
+    color: #00d4ff;
+}
+section .title::after {
+    background: #080808;
+}
+
+/* Navbar glassmorphism */
+.navbar.sticky {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Card hover glow */
+.services .serv-content .card:hover, .teams .carousel .card:hover {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    background: rgba(255, 255, 255, 0.08); /* slight brighten on hover */
+}
+.services .serv-content .card:hover i, .teams .carousel .card:hover i {
+    color: #00d4ff;
+}
+.services .serv-content .card, .teams .carousel .card {
+    background: rgba(255, 255, 255, 0.05);
+}
+"""
+
+with open(path, 'w', encoding='utf-8') as f:
+    f.write(css + new_css)
+print('CSS Updated Successfully!')
