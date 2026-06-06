@@ -122,21 +122,44 @@ if (canvas) {
 
     // --- HOME: Particle Galaxy ---
     const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 900;
+    const particlesCount = 1200;
     const posArray = new Float32Array(particlesCount * 3);
-    for(let i = 0; i < particlesCount * 3; i++) {
+    const colorArray = new Float32Array(particlesCount * 3);
+    
+    const colorCyan = new THREE.Color('#00f2fe');
+    const colorPurple = new THREE.Color('#9b51e0');
+    const colorPink = new THREE.Color('#ff007f');
+    
+    for(let i = 0; i < particlesCount * 3; i+=3) {
         posArray[i] = (Math.random() - 0.5) * 120;
+        posArray[i+1] = (Math.random() - 0.5) * 120;
+        posArray[i+2] = (Math.random() - 0.5) * 120;
+        
+        const mixedColor = new THREE.Color();
+        const rand = Math.random();
+        if (rand < 0.4) {
+            mixedColor.copy(colorCyan);
+        } else if (rand < 0.8) {
+            mixedColor.copy(colorPurple);
+        } else {
+            mixedColor.copy(colorPink);
+        }
+        
+        colorArray[i] = mixedColor.r;
+        colorArray[i+1] = mixedColor.g;
+        colorArray[i+2] = mixedColor.b;
     }
     particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
     const particlesMaterial = new THREE.PointsMaterial({
-        size: 0.25, color: 0x00d4ff, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending
+        size: 0.25, vertexColors: true, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending
     });
     const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
     homeGroup.add(particlesMesh);
 
     // --- ABOUT: Torus Knot ---
     const torusGeometry = new THREE.TorusKnotGeometry(9, 2.5, 120, 16);
-    const torusMaterial = new THREE.MeshBasicMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.25 });
+    const torusMaterial = new THREE.MeshBasicMaterial({ color: 0x9b51e0, wireframe: true, transparent: true, opacity: 0.25 });
     const torusMesh = new THREE.Mesh(torusGeometry, torusMaterial);
     aboutGroup.add(torusMesh);
     torusMesh.position.set(13, 0, -10); // Offset to the right side where empty space is usually
@@ -144,7 +167,8 @@ if (canvas) {
     // --- SKILLS: Floating Cubes ---
     for(let i=0; i<30; i++) {
         const boxGeo = new THREE.BoxGeometry(2, 2, 2);
-        const boxMat = new THREE.MeshBasicMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.5 });
+        const color = i % 2 === 0 ? 0x00f2fe : 0x9b51e0;
+        const boxMat = new THREE.MeshBasicMaterial({ color: color, wireframe: true, transparent: true, opacity: 0.5 });
         const box = new THREE.Mesh(boxGeo, boxMat);
         box.position.set((Math.random() - 0.5) * 60, (Math.random() - 0.5) * 60, (Math.random() - 0.5) * 60);
         box.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
@@ -154,7 +178,8 @@ if (canvas) {
     // --- EDUCATION: Floating Octahedrons ---
     for(let i=0; i<25; i++) {
         const octGeo = new THREE.OctahedronGeometry(2);
-        const octMat = new THREE.MeshBasicMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.4 });
+        const color = i % 2 === 0 ? 0x9b51e0 : 0xff007f;
+        const octMat = new THREE.MeshBasicMaterial({ color: color, wireframe: true, transparent: true, opacity: 0.4 });
         const oct = new THREE.Mesh(octGeo, octMat);
         oct.position.set((Math.random() - 0.5) * 60, (Math.random() - 0.5) * 60, (Math.random() - 0.5) * 60);
         oct.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
@@ -163,7 +188,7 @@ if (canvas) {
 
     // --- PROJECTS: Animated Wireframe Wave ---
     const waveGeometry = new THREE.PlaneGeometry(120, 100, 30, 30);
-    const waveMaterial = new THREE.MeshBasicMaterial({ color: 0x00d4ff, wireframe: true, transparent: true, opacity: 0.12 });
+    const waveMaterial = new THREE.MeshBasicMaterial({ color: 0x00f2fe, wireframe: true, transparent: true, opacity: 0.15 });
     const waveMesh = new THREE.Mesh(waveGeometry, waveMaterial);
     waveMesh.rotation.x = -Math.PI / 2;
     waveMesh.position.y = -15;
@@ -173,9 +198,27 @@ if (canvas) {
     const networkGeo = new THREE.BufferGeometry();
     const networkCount = 300;
     const netPos = new Float32Array(networkCount * 3);
-    for(let i=0;i<networkCount*3;i++) { netPos[i] = (Math.random() - 0.5) * 80; }
+    const netColors = new Float32Array(networkCount * 3);
+    for(let i=0; i<networkCount*3; i+=3) {
+        netPos[i] = (Math.random() - 0.5) * 80;
+        netPos[i+1] = (Math.random() - 0.5) * 80;
+        netPos[i+2] = (Math.random() - 0.5) * 80;
+        
+        const mixedColor = new THREE.Color();
+        if (Math.random() < 0.5) {
+            mixedColor.copy(colorCyan);
+        } else {
+            mixedColor.copy(colorPurple);
+        }
+        netColors[i] = mixedColor.r;
+        netColors[i+1] = mixedColor.g;
+        netColors[i+2] = mixedColor.b;
+    }
     networkGeo.setAttribute('position', new THREE.BufferAttribute(netPos, 3));
-    const networkMat = new THREE.PointsMaterial({ size: 0.3, color: 0x00d4ff, transparent: true, opacity: 0.8 });
+    networkGeo.setAttribute('color', new THREE.BufferAttribute(netColors, 3));
+    const networkMat = new THREE.PointsMaterial({
+        size: 0.3, vertexColors: true, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending
+    });
     const networkMesh = new THREE.Points(networkGeo, networkMat);
     contactGroup.add(networkMesh);
 
