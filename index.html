@@ -54,8 +54,8 @@
         <i class="fas fa-moon" id="theme-icon"></i>
     </button>
 
-    <!-- ===== CANVAS BACKGROUND ===== -->
-    <canvas id="bg-canvas"></canvas>
+    <!-- ===== VIDEO BACKGROUND ===== -->
+    <video id="bg-video" autoplay loop muted playsinline src="Man_turns_head_in_neon_20260927131732.mp4"></video>
 
     <!-- ===== NAVBAR ===== -->
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
@@ -73,7 +73,7 @@
                 <li><a href="#contact" class="nav-link" id="nav-contact">Contact</a></li>
             </ul>
             <div class="nav-actions">
-                <a href="raja resume (2).pdf" target="_blank" class="btn btn-outline btn-sm" id="resume-btn">
+                <a href="Raja_Babu_Resume_new.pdf" target="_blank" class="btn btn-outline btn-sm" id="resume-btn">
                     <i class="fas fa-download"></i> Resume
                 </a>
             </div>
@@ -105,7 +105,7 @@
                     scalable solutions with Java, Python, and Data Analytics. Problem-solver at heart.
                 </p>
                 <div class="hero-cta" data-reveal>
-                    <a href="raja resume (2).pdf" target="_blank" class="btn btn-primary" id="download-resume-btn">
+                    <a href="Raja_Babu_Resume_new.pdf" target="_blank" class="btn btn-primary" id="download-resume-btn">
                         <i class="fas fa-download"></i> Download Resume
                     </a>
                     <a href="#projects" class="btn btn-glass" id="view-projects-btn">
@@ -244,6 +244,12 @@
                         opportunities to leverage technical expertise in innovative IT solutions.
                     </p>
 
+                    <!-- GitHub Live Stats -->
+                    <div class="github-stats-container" style="display: flex; gap: 15px; margin: 25px 0; flex-wrap: wrap;">
+                        <img src="https://github-readme-stats.vercel.app/api?username=Rajababu7091&show_icons=true&theme=radical&bg_color=0f1016&border_color=00f2fe&title_color=00f2fe&text_color=a0aec0&icon_color=9b51e0" alt="GitHub Stats" style="border-radius: 10px; max-width: 100%; height: auto; border: 1px solid rgba(0,242,254,0.2);">
+                        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Rajababu7091&layout=compact&theme=radical&bg_color=0f1016&border_color=9b51e0&title_color=9b51e0&text_color=a0aec0" alt="Top Languages" style="border-radius: 10px; max-width: 100%; height: auto; border: 1px solid rgba(155,81,224,0.2);">
+                    </div>
+
                     <!-- Education Timeline -->
                     <div class="about-education">
                         <h4 class="about-edu-title"><i class="fas fa-graduation-cap"></i> Education Journey</h4>
@@ -251,15 +257,15 @@
                             <div class="edu-item">
                                 <div class="edu-dot"></div>
                                 <div class="edu-content">
-                                    <h5>MCA — Master of Computer Applications</h5>
+                                    <h5>MCA (Artificial Intelligence & Machine Learning)</h5>
                                     <span class="edu-institute">Chandigarh University</span>
-                                    <span class="edu-year">2024 – 2026 (Expected)</span>
+                                    <span class="edu-year">2024 – 2026 | CGPA: 6.4/10 (Awaited)</span>
                                 </div>
                             </div>
                             <div class="edu-item">
                                 <div class="edu-dot"></div>
                                 <div class="edu-content">
-                                    <h5>B.Sc (IT) — Information Technology</h5>
+                                    <h5>B.Sc (Information Technology)</h5>
                                     <span class="edu-institute">C.V. Raman University</span>
                                     <span class="edu-year">2019 – 2022 | CGPA: 7.3/10</span>
                                 </div>
@@ -268,7 +274,7 @@
                                 <div class="edu-dot"></div>
                                 <div class="edu-content">
                                     <h5>Intermediate (Science)</h5>
-                                    <span class="edu-institute">M.L.S.M College</span>
+                                    <span class="edu-institute">M.L.S.M College, Darbhanga</span>
                                     <span class="edu-year">2017 – 2019 | 75.8%</span>
                                 </div>
                             </div>
@@ -276,7 +282,7 @@
                                 <div class="edu-dot"></div>
                                 <div class="edu-content">
                                     <h5>Matriculation</h5>
-                                    <span class="edu-institute">S.K High School</span>
+                                    <span class="edu-institute">S.K High School, Madhubani</span>
                                     <span class="edu-year">2016 – 2017 | 71.6%</span>
                                 </div>
                             </div>
@@ -297,7 +303,7 @@
                     </div>
 
                     <div class="about-cta">
-                        <a href="raja resume (2).pdf" target="_blank" class="btn btn-primary" id="about-resume-btn">
+                        <a href="Raja_Babu_Resume_new.pdf" target="_blank" class="btn btn-primary" id="about-resume-btn">
                             <i class="fas fa-file-download"></i> Download Resume
                         </a>
                         <a href="#contact" class="btn btn-glass" id="about-contact-btn">
@@ -324,93 +330,119 @@
                         <h3>Languages</h3>
                     </div>
                     <div class="skill-cards-grid">
-                        <div class="skill-card" id="skill-c">
-                            <div class="skill-card-icon"><i class="fas fa-copyright"></i></div>
-                            <span class="skill-name">C</span>
-                            <div class="skill-bar"><div class="skill-fill" style="--fill: 78%"></div></div>
-                            <span class="skill-percent">78%</span>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fab fa-java"></i></div>
+                            <span class="skill-name">Java</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 85%"></div></div>
+                            <span class="skill-percent">85%</span>
                         </div>
-                        <div class="skill-card" id="skill-cpp">
+                        <div class="skill-card">
                             <div class="skill-card-icon"><i class="fas fa-code"></i></div>
                             <span class="skill-name">C++</span>
                             <div class="skill-bar"><div class="skill-fill" style="--fill: 75%"></div></div>
                             <span class="skill-percent">75%</span>
                         </div>
-                        <div class="skill-card" id="skill-java">
-                            <div class="skill-card-icon"><i class="fab fa-java"></i></div>
-                            <span class="skill-name">Java</span>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-copyright"></i></div>
+                            <span class="skill-name">C</span>
                             <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
                             <span class="skill-percent">80%</span>
                         </div>
-                        <div class="skill-card" id="skill-python">
-                            <div class="skill-card-icon"><i class="fab fa-python"></i></div>
-                            <span class="skill-name">Python</span>
-                            <div class="skill-bar"><div class="skill-fill" style="--fill: 78%"></div></div>
-                            <span class="skill-percent">78%</span>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-database"></i></div>
+                            <span class="skill-name">SQL</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-cat-header">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Core CS</h3>
+                    </div>
+                    <div class="skill-cards-grid">
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-project-diagram"></i></div>
+                            <span class="skill-name">DSA & OOP</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-server"></i></div>
+                            <span class="skill-name">DBMS & OS</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 75%"></div></div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-network-wired"></i></div>
+                            <span class="skill-name">Networks</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 70%"></div></div>
+                            <span class="skill-percent">70%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-sync-alt"></i></div>
+                            <span class="skill-name">SDLC & Agile</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 85%"></div></div>
+                            <span class="skill-percent">85%</span>
                         </div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <div class="skill-cat-header">
                         <i class="fas fa-globe"></i>
-                        <h3>Web & Tools</h3>
+                        <h3>Web & Database</h3>
                     </div>
                     <div class="skill-cards-grid">
-                        <div class="skill-card" id="skill-html">
+                        <div class="skill-card">
                             <div class="skill-card-icon"><i class="fab fa-html5"></i></div>
-                            <span class="skill-name">HTML5</span>
+                            <span class="skill-name">HTML/CSS/JS</span>
                             <div class="skill-bar"><div class="skill-fill" style="--fill: 85%"></div></div>
                             <span class="skill-percent">85%</span>
                         </div>
-                        <div class="skill-card" id="skill-css">
-                            <div class="skill-card-icon"><i class="fab fa-css3-alt"></i></div>
-                            <span class="skill-name">CSS3</span>
-                            <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
-                            <span class="skill-percent">80%</span>
-                        </div>
-                        <div class="skill-card" id="skill-js">
-                            <div class="skill-card-icon"><i class="fab fa-js-square"></i></div>
-                            <span class="skill-name">JavaScript</span>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fab fa-java"></i></div>
+                            <span class="skill-name">JSP & Servlets</span>
                             <div class="skill-bar"><div class="skill-fill" style="--fill: 70%"></div></div>
                             <span class="skill-percent">70%</span>
                         </div>
-                        <div class="skill-card" id="skill-git">
-                            <div class="skill-card-icon"><i class="fab fa-git-alt"></i></div>
-                            <span class="skill-name">Git/GitHub</span>
-                            <div class="skill-bar"><div class="skill-fill" style="--fill: 78%"></div></div>
-                            <span class="skill-percent">78%</span>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-database"></i></div>
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 85%"></div></div>
+                            <span class="skill-percent">85%</span>
                         </div>
                     </div>
                 </div>
                 <div class="skill-category">
                     <div class="skill-cat-header">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Data & Database</h3>
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools</h3>
                     </div>
                     <div class="skill-cards-grid">
-                        <div class="skill-card" id="skill-mysql">
-                            <div class="skill-card-icon"><i class="fas fa-server"></i></div>
-                            <span class="skill-name">MySQL</span>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fab fa-git-alt"></i></div>
+                            <span class="skill-name">Git/GitHub</span>
                             <div class="skill-bar"><div class="skill-fill" style="--fill: 85%"></div></div>
                             <span class="skill-percent">85%</span>
                         </div>
-                        <div class="skill-card" id="skill-powerbi">
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-code"></i></div>
+                            <span class="skill-name">VS Code</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 90%"></div></div>
+                            <span class="skill-percent">90%</span>
+                        </div>
+                        <div class="skill-card">
+                            <div class="skill-card-icon"><i class="fas fa-file-excel"></i></div>
+                            <span class="skill-name">MS Excel</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 80%"></div></div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-card">
                             <div class="skill-card-icon"><i class="fas fa-chart-pie"></i></div>
                             <span class="skill-name">Power BI</span>
-                            <div class="skill-bar"><div class="skill-fill" style="--fill: 72%"></div></div>
-                            <span class="skill-percent">72%</span>
-                        </div>
-                        <div class="skill-card" id="skill-numpy">
-                            <div class="skill-card-icon"><i class="fas fa-calculator"></i></div>
-                            <span class="skill-name">NumPy/Pandas</span>
-                            <div class="skill-bar"><div class="skill-fill" style="--fill: 70%"></div></div>
-                            <span class="skill-percent">70%</span>
-                        </div>
-                        <div class="skill-card" id="skill-matplotlib">
-                            <div class="skill-card-icon"><i class="fas fa-chart-bar"></i></div>
-                            <span class="skill-name">Matplotlib</span>
-                            <div class="skill-bar"><div class="skill-fill" style="--fill: 68%"></div></div>
-                            <span class="skill-percent">68%</span>
+                            <div class="skill-bar"><div class="skill-fill" style="--fill: 75%"></div></div>
+                            <span class="skill-percent">75%</span>
                         </div>
                     </div>
                 </div>
@@ -426,140 +458,218 @@
                 <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
                 <div class="section-line"></div>
             </div>
+            
+            <div class="project-filters" data-reveal>
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="ai">AI / ML</button>
+                <button class="filter-btn" data-filter="java">Java / Web</button>
+                <button class="filter-btn" data-filter="python">Python</button>
+            </div>
+
             <div class="projects-grid">
 
                 <!-- Project 1 -->
-                <div class="project-card" data-reveal id="project-gym">
+                <div class="project-card" data-reveal id="project-sentiment" data-category="ai python">
                     <div class="project-image">
                         <div class="project-img-placeholder" style="background: linear-gradient(135deg, #00f2fe22, #9b51e033);">
-                            <i class="fas fa-dumbbell"></i>
+                            <i class="fas fa-brain"></i>
                         </div>
                         <div class="project-overlay">
-                            <a href="https://github.com/Rajababu7091" target="_blank" class="project-link-btn" id="gym-github">
+                            <a href="https://github.com/Rajababu7091" target="_blank" class="project-link-btn">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="#" class="project-link-btn project-demo-btn" id="gym-demo">
-                                <i class="fas fa-external-link-alt"></i> Demo
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag tag-python">Machine Learning</span>
+                            <span class="project-tag tag-python">NLP</span>
+                            <span class="project-tag tag-python">Streamlit</span>
+                        </div>
+                        <h3 class="project-title">Sentiment Predictor App</h3>
+                        <p class="project-desc">
+                            Machine learning application classifying text into Positive, Negative, and Neutral sentiments using Natural Language Processing (NLP) and Scikit-learn.
+                        </p>
+                        <div class="project-highlights">
+                            <span><i class="fas fa-check-circle"></i> Text preprocessing</span>
+                            <span><i class="fas fa-check-circle"></i> Real-time Streamlit UI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-reveal id="project-cafe" data-category="java web">
+                    <div class="project-image">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #9b51e022, #ff007f33);">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/Rajababu7091" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i> Code
                             </a>
                         </div>
                     </div>
                     <div class="project-body">
                         <div class="project-tags">
                             <span class="project-tag tag-java">Java</span>
-                            <span class="project-tag tag-sql">SQL</span>
+                            <span class="project-tag tag-java">JSP/Servlets</span>
                             <span class="project-tag tag-mysql">MySQL</span>
                         </div>
-                        <h3 class="project-title">Gym Management System</h3>
+                        <h3 class="project-title">Cafe Management System</h3>
                         <p class="project-desc">
-                            Desktop-based system with SQL integration for real-time member and payment tracking. 
-                            Automated manual record-keeping, reducing administrative workload by 40%.
+                            Web-based cafe management system for menu, billing, customer, and order management implementing CRUD operations via MVC architecture.
                         </p>
                         <div class="project-highlights">
-                            <span><i class="fas fa-check-circle"></i> 40% workload reduction</span>
-                            <span><i class="fas fa-check-circle"></i> Real-time tracking</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card" data-reveal id="project-ecommerce">
-                    <div class="project-image">
-                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #9b51e022, #ff007f33);">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <a href="https://github.com/Rajababu7091" target="_blank" class="project-link-btn" id="ecom-github">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="#" class="project-link-btn project-demo-btn" id="ecom-demo">
-                                <i class="fas fa-external-link-alt"></i> Demo
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-body">
-                        <div class="project-tags">
-                            <span class="project-tag tag-python">Python</span>
-                            <span class="project-tag tag-pandas">NumPy</span>
-                            <span class="project-tag tag-matplotlib">Matplotlib</span>
-                        </div>
-                        <h3 class="project-title">E-Commerce Data Visualizer</h3>
-                        <p class="project-desc">
-                            Interactive visualization tool analyzing sales trends, top products, and customer 
-                            behavior patterns using Python data science libraries.
-                        </p>
-                        <div class="project-highlights">
-                            <span><i class="fas fa-check-circle"></i> Sales trend analysis</span>
-                            <span><i class="fas fa-check-circle"></i> Customer insights</span>
+                            <span><i class="fas fa-check-circle"></i> MVC Architecture</span>
+                            <span><i class="fas fa-check-circle"></i> DB Automation</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="project-card" data-reveal id="project-portfolio">
+                <div class="project-card" data-reveal id="project-snake" data-category="ai cpp">
                     <div class="project-image">
                         <div class="project-img-placeholder" style="background: linear-gradient(135deg, #00f2fe22, #ff007f22);">
-                            <i class="fas fa-laptop-code"></i>
+                            <i class="fas fa-gamepad"></i>
                         </div>
                         <div class="project-overlay">
-                            <a href="https://github.com/Rajababu7091/my-portfolio" target="_blank" class="project-link-btn" id="portfolio-github">
+                            <a href="https://github.com/Rajababu7091" target="_blank" class="project-link-btn">
                                 <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="#" class="project-link-btn project-demo-btn" id="portfolio-demo">
-                                <i class="fas fa-external-link-alt"></i> Live
                             </a>
                         </div>
                     </div>
                     <div class="project-body">
                         <div class="project-tags">
-                            <span class="project-tag tag-html">HTML5</span>
-                            <span class="project-tag tag-css">CSS3</span>
-                            <span class="project-tag tag-js">JavaScript</span>
+                            <span class="project-tag tag-c">C++</span>
+                            <span class="project-tag tag-java">Data Structures</span>
+                            <span class="project-tag tag-python">BFS AI</span>
                         </div>
-                        <h3 class="project-title">Personal Portfolio Website</h3>
+                        <h3 class="project-title">Smart Snake Game with AI</h3>
                         <p class="project-desc">
-                            Modern, premium developer portfolio with 3D animations, glassmorphism design, 
-                            dark/light mode, and responsive layout showcasing technical skills.
+                            AI-powered Snake Game using Breadth First Search (BFS) algorithm for autonomous navigation and shortest safe path calculation.
                         </p>
                         <div class="project-highlights">
-                            <span><i class="fas fa-check-circle"></i> 3D Three.js effects</span>
-                            <span><i class="fas fa-check-circle"></i> Responsive design</span>
+                            <span><i class="fas fa-check-circle"></i> Autonomous AI navigation</span>
+                            <span><i class="fas fa-check-circle"></i> Graph traversal (BFS)</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Project 4 -->
-                <div class="project-card project-card-wide" data-reveal id="project-analytics">
+                <div class="project-card" data-reveal id="project-gym" data-category="java db">
                     <div class="project-image">
                         <div class="project-img-placeholder" style="background: linear-gradient(135deg, #9b51e033, #00f2fe22);">
-                            <i class="fas fa-chart-pie"></i>
+                            <i class="fas fa-dumbbell"></i>
                         </div>
                         <div class="project-overlay">
-                            <a href="https://github.com/Rajababu7091" target="_blank" class="project-link-btn" id="analytics-github">
+                            <a href="https://github.com/Rajababu7091" target="_blank" class="project-link-btn">
                                 <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="#" class="project-link-btn project-demo-btn" id="analytics-demo">
-                                <i class="fas fa-external-link-alt"></i> Demo
                             </a>
                         </div>
                     </div>
                     <div class="project-body">
                         <div class="project-tags">
-                            <span class="project-tag tag-powerbi">Power BI</span>
                             <span class="project-tag tag-sql">SQL</span>
-                            <span class="project-tag tag-python">Python</span>
                             <span class="project-tag tag-mysql">MySQL</span>
+                            <span class="project-tag tag-java">DB Management</span>
                         </div>
-                        <h3 class="project-title">Business Analytics Dashboard</h3>
+                        <h3 class="project-title">Gym Management System</h3>
                         <p class="project-desc">
-                            Comprehensive Power BI dashboard with SQL backend for business KPIs visualization, 
-                            data-driven decision making, and interactive reporting capabilities.
+                            Relational database system managing members, subscriptions, trainers, and payments using normalized database tables and optimized queries.
                         </p>
                         <div class="project-highlights">
-                            <span><i class="fas fa-check-circle"></i> Interactive reports</span>
-                            <span><i class="fas fa-check-circle"></i> Real-time KPIs</span>
-                            <span><i class="fas fa-check-circle"></i> SQL data pipeline</span>
+                            <span><i class="fas fa-check-circle"></i> Normalized tables</span>
+                            <span><i class="fas fa-check-circle"></i> Automated records</span>
                         </div>
                     </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card project-card-wide" data-reveal id="project-tts" data-category="python">
+                    <div class="project-image">
+                        <div class="project-img-placeholder" style="background: linear-gradient(135deg, #ff007f33, #9b51e022);">
+                            <i class="fas fa-volume-up"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://github.com/Rajababu7091" target="_blank" class="project-link-btn">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tags">
+                            <span class="project-tag tag-python">Python</span>
+                            <span class="project-tag tag-html">Tkinter</span>
+                            <span class="project-tag tag-js">pyttsx3</span>
+                        </div>
+                        <h3 class="project-title">Text-to-Speech Converter</h3>
+                        <p class="project-desc">
+                            Desktop application providing integrated speech synthesis for real-time voice generation from user-entered text, focusing on improved accessibility.
+                        </p>
+                        <div class="project-highlights">
+                            <span><i class="fas fa-check-circle"></i> Real-time voice generation</span>
+                            <span><i class="fas fa-check-circle"></i> Intuitive GUI</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CERTIFICATIONS SECTION ===== -->
+    <section class="certifications-section section" id="certifications">
+        <div class="container">
+            <div class="section-header" data-reveal>
+                <span class="section-tag">Continuous Learning</span>
+                <h2 class="section-title">My <span class="gradient-text">Certifications</span></h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="certs-grid">
+                
+                <div class="cert-card" data-reveal>
+                    <div class="cert-icon"><i class="fas fa-brain"></i></div>
+                    <div class="cert-content">
+                        <h3>Machine Learning with Python</h3>
+                        <p class="cert-issuer">Chandigarh University (Coursera)</p>
+                    </div>
+                    <div class="cert-glow"></div>
+                </div>
+
+                <div class="cert-card" data-reveal>
+                    <div class="cert-icon"><i class="fab fa-java"></i></div>
+                    <div class="cert-content">
+                        <h3>Intermediate OOP with Java</h3>
+                        <p class="cert-issuer">Coursera Project Network</p>
+                    </div>
+                    <div class="cert-glow"></div>
+                </div>
+
+                <div class="cert-card" data-reveal>
+                    <div class="cert-icon"><i class="fas fa-database"></i></div>
+                    <div class="cert-content">
+                        <h3>Foundations: Data, Data, Everywhere</h3>
+                        <p class="cert-issuer">Google (Coursera)</p>
+                    </div>
+                    <div class="cert-glow"></div>
+                </div>
+
+                <div class="cert-card" data-reveal>
+                    <div class="cert-icon"><i class="fab fa-angular"></i></div>
+                    <div class="cert-content">
+                        <h3>Angular</h3>
+                        <p class="cert-issuer">Infosys Springboard</p>
+                    </div>
+                    <div class="cert-glow"></div>
+                </div>
+
+                <div class="cert-card" data-reveal>
+                    <div class="cert-icon"><i class="fas fa-network-wired"></i></div>
+                    <div class="cert-content">
+                        <h3>Basics of Internet of Things</h3>
+                        <p class="cert-issuer">Chandigarh University (Coursera)</p>
+                    </div>
+                    <div class="cert-glow"></div>
                 </div>
 
             </div>
@@ -942,14 +1052,14 @@
                         <li><a href="#experience">Experience</a></li>
                         <li><a href="#certifications">Certifications</a></li>
                         <li><a href="#achievements">Achievements</a></li>
-                        <li><a href="raja resume (2).pdf" target="_blank">Resume</a></li>
+                        <li><a href="Raja_Babu_Resume_new.pdf" target="_blank">Resume</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
                     <h4>Contact</h4>
                     <p><i class="fas fa-envelope"></i> rajababu7091@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Bihar, India</p>
-                    <a href="raja resume (2).pdf" target="_blank" class="btn btn-outline btn-sm footer-resume-btn">
+                    <a href="Raja_Babu_Resume_new.pdf" target="_blank" class="btn btn-outline btn-sm footer-resume-btn">
                         <i class="fas fa-download"></i> Download CV
                     </a>
                 </div>
@@ -962,7 +1072,7 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
     <script src="script.js"></script>
 </body>
 

@@ -6,6 +6,23 @@
 'use strict';
 
 /* ============================================
+   0. LENIS SMOOTH SCROLLING
+   ============================================ */
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smooth: true,
+});
+
+function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+}
+requestAnimationFrame(raf);
+
+/* ============================================
    1. LOADER
    ============================================ */
 const loader = document.getElementById('loader');
@@ -126,7 +143,7 @@ function updateActiveNavLink() {
    4. BACK TO TOP
    ============================================ */
 backToTop.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    lenis.scrollTo(0, { duration: 1.2 });
 });
 
 /* ============================================
@@ -296,140 +313,8 @@ if (contactForm) {
     });
 }
 
-/* ============================================
-   10. THREE.JS PARTICLE BACKGROUND
-   ============================================ */
-(function initThreeJS() {
-    const canvas = document.getElementById('bg-canvas');
-    if (!canvas || typeof THREE === 'undefined') return;
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
-    camera.position.z = 30;
-
-    // Particle colors
-    const colorCyan = new THREE.Color('#00f2fe');
-    const colorPurple = new THREE.Color('#9b51e0');
-    const colorPink = new THREE.Color('#ff007f');
-
-    // ---- MAIN PARTICLE GALAXY ----
-    const particleCount = window.innerWidth < 768 ? 600 : 1200;
-    const positions = new Float32Array(particleCount * 3);
-    const colors = new Float32Array(particleCount * 3);
-
-    for (let i = 0; i < particleCount * 3; i += 3) {
-        positions[i] = (Math.random() - 0.5) * 150;
-        positions[i + 1] = (Math.random() - 0.5) * 150;
-        positions[i + 2] = (Math.random() - 0.5) * 80;
-
-        const r = Math.random();
-        const c = r < 0.4 ? colorCyan : r < 0.75 ? colorPurple : colorPink;
-        colors[i] = c.r;
-        colors[i + 1] = c.g;
-        colors[i + 2] = c.b;
-    }
-
-    const particleGeo = new THREE.BufferGeometry();
-    particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    particleGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-
-    const particleMat = new THREE.PointsMaterial({
-        size: 0.2,
-        vertexColors: true,
-        transparent: true,
-        opacity: 0.6,
-        blending: THREE.AdditiveBlending,
-        depthWrite: false
-    });
-
-    const particleMesh = new THREE.Points(particleGeo, particleMat);
-    scene.add(particleMesh);
-
-    // ---- FLOATING GEOMETRIC SHAPES ----
-    const shapes = [];
-    const shapeCount = window.innerWidth < 768 ? 6 : 14;
-
-    for (let i = 0; i < shapeCount; i++) {
-        const geoTypes = [
-            new THREE.OctahedronGeometry(1.5),
-            new THREE.TetrahedronGeometry(1.8),
-            new THREE.IcosahedronGeometry(1.2),
-            new THREE.BoxGeometry(2, 2, 2)
-        ];
-        const geo = geoTypes[i % geoTypes.length];
-        const color = [0x00f2fe, 0x9b51e0, 0xff007f][i % 3];
-        const mat = new THREE.MeshBasicMaterial({
-            color,
-            wireframe: true,
-            transparent: true,
-            opacity: 0.12
-        });
-        const mesh = new THREE.Mesh(geo, mat);
-        mesh.position.set(
-            (Math.random() - 0.5) * 80,
-            (Math.random() - 0.5) * 60,
-            (Math.random() - 0.5) * 40
-        );
-        mesh.rotationSpeed = {
-            x: (Math.random() - 0.5) * 0.008,
-            y: (Math.random() - 0.5) * 0.012
-        };
-        mesh.floatOffset = Math.random() * Math.PI * 2;
-        scene.add(mesh);
-        shapes.push(mesh);
-    }
-
-    // ---- MOUSE PARALLAX ----
-    let mouseX = 0, mouseY = 0;
-    let targetX = 0, targetY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-        mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-    });
-
-    // ---- ANIMATION LOOP ----
-    const clock = new THREE.Clock();
-
-    function animate() {
-        requestAnimationFrame(animate);
-        const elapsed = clock.getElapsedTime();
-
-        // Smooth mouse follow
-        targetX += (mouseX - targetX) * 0.04;
-        targetY += (mouseY - targetY) * 0.04;
-
-        // Rotate particles
-        particleMesh.rotation.y = elapsed * 0.03 + targetX * 0.3;
-        particleMesh.rotation.x = targetY * 0.1;
-        particleMesh.rotation.z = elapsed * 0.01;
-
-        // Animate shapes
-        shapes.forEach((shape, i) => {
-            shape.rotation.x += shape.rotationSpeed.x;
-            shape.rotation.y += shape.rotationSpeed.y;
-            shape.position.y += Math.sin(elapsed * 0.5 + shape.floatOffset) * 0.01;
-        });
-
-        // Camera gentle movement
-        camera.position.x += (targetX * 3 - camera.position.x) * 0.03;
-        camera.position.y += (-targetY * 2 - camera.position.y) * 0.03;
-
-        renderer.render(scene, camera);
-    }
-    animate();
-
-    // ---- RESIZE HANDLER ----
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
-})();
 
 /* ============================================
    11. SMOOTH SCROLL FOR ANCHOR LINKS
@@ -439,9 +324,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const target = document.querySelector(anchor.getAttribute('href'));
         if (target) {
             e.preventDefault();
-            const offset = 80;
-            const top = target.getBoundingClientRect().top + window.scrollY - offset;
-            window.scrollTo({ top, behavior: 'smooth' });
+            lenis.scrollTo(target, { offset: -80, duration: 1.2 });
         }
     });
 });
@@ -596,3 +479,40 @@ window.addEventListener('load', () => {
         setTimeout(() => el.classList.add('revealed'), 1800 + i * 150);
     });
 });
+
+/* ============================================
+   17. PROJECT FILTERING SYSTEM
+   ============================================ */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.projects-grid .project-card');
+
+if (filterBtns.length > 0) {
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all
+            filterBtns.forEach(b => b.classList.remove('active'));
+            // Add to clicked
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            projectCards.forEach(card => {
+                const categories = card.getAttribute('data-category') || '';
+                
+                if (filterValue === 'all' || categories.includes(filterValue)) {
+                    card.style.display = 'block';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+}
